@@ -1,4 +1,4 @@
-# 🚀 Serverless Registration Form
+#   🎓 Serverless Registration Form
 
 ## 📃 Overview
 
@@ -11,6 +11,36 @@ This Project is a great way to learn about the basic of serverless architecture 
   * DynamoDB Table
   * Create IAM Role for Lambda Function
   * Set up an API gateway endpoint & enable CORS for cross domain request
+
+---
+
+## ☁️  Architecture diagram
+
+```bash
+[User Browser]
+     |
+     |  (HTTP POST request with form data)
+     v
+[Amazon API Gateway]  <-- CORS enabled
+     |
+     |  (Invoke Lambda)
+     v
+[AWS Lambda Function]  <-- Python code processes request
+     |
+     |  (PutItem API Call)
+     v
+[Amazon DynamoDB Table]  <-- Stores name, email, phone, password
+
+(For Monitoring)
+[AWS Lambda] --> [Amazon CloudWatch Logs]
+```
+
+* Flow Explanation:
+1. User fills the form in the browser and submits.
+2. JavaScript sends a POST request to API Gateway endpoint.
+3. API Gateway triggers the Lambda function.
+4. Lambda processes the request and stores the data in DynamoDB.
+5. Lambda also logs events to CloudWatch for debugging and monitoring.
 
 ---
 
