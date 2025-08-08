@@ -41,7 +41,6 @@ This Project is a great way to learn about the basic of serverless architecture 
          └───────────────────────┘
 
                    │ Logs
-                   ▼
          ┌───────────────────────┐
          │   Amazon CloudWatch   │
          │ (Logs & Monitoring)   │
