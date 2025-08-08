@@ -17,22 +17,36 @@ This Project is a great way to learn about the basic of serverless architecture 
 ## ☁️  Architecture diagram
 
 ```bash
-[User Browser]
-     |
-     |  (HTTP POST request with form data)
-     v
-[Amazon API Gateway]  <-- CORS enabled
-     |
-     |  (Invoke Lambda)
-     v
-[AWS Lambda Function]  <-- Python code processes request
-     |
-     |  (PutItem API Call)
-     v
-[Amazon DynamoDB Table]  <-- Stores name, email, phone, password
+         ┌───────────────────────┐
+         │       Browser         │
+         │ (HTML Form + JS Code) │
+         └─────────┬─────────────┘
+                   │  POST /register
+                   ▼
+         ┌───────────────────────┐
+         │   Amazon API Gateway   │
+         │ (CORS Enabled, POST)   │
+         └─────────┬─────────────┘
+                   │ Invoke Lambda
+                   ▼
+         ┌───────────────────────┐
+         │     AWS Lambda        │
+         │  (Python Function)    │
+         └─────────┬─────────────┘
+                   │ PutItem
+                   ▼
+         ┌───────────────────────┐
+         │   Amazon DynamoDB     │
+         │ (registration-table)  │
+         └───────────────────────┘
 
-(For Monitoring)
-[AWS Lambda] --> [Amazon CloudWatch Logs]
+                   │ Logs
+                   ▼
+         ┌───────────────────────┐
+         │   Amazon CloudWatch   │
+         │ (Logs & Monitoring)   │
+         └───────────────────────┘
+
 ```
 
 * Flow Explanation:
