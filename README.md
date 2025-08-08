@@ -33,5 +33,21 @@ This Project is a great way to learn about the basic of serverless architecture 
 
 * We are going to create the Lambda function in this step, we will create a Lambda function that will handle form submissions and store the data in our dynamodb table we will use python as our Lambda functions programming language, since it is easy to use and support the AWS SDK for python.
 * Lambda --> Create Function --> Author from Scratch --> Function Name: registration-form-function --> Runtime: Python (Latest Version) --> Permission -- use an existing role-(RegistrationFormRole) --> Create Function
+* Copy Lambda Function and paste it in code and Deploy it
+* Now going to DynamoDB table to create some dummy entries
+* DynamoDB --> Select for Table(registration-table) --> Create Items --> Add entires as email, name, phone, password --> Create Items
 
-# 🔹 Step 4: 
+# 🔹 Step 4: Create API Gateway and Enable CORS
+
+* Amazon API gateway --> REST API - Build --> Name: Registration-api --> Create API
+* Create Resource --> Resource name:Register and path "/"(by-default) --> Enable CORS --> Create Resource
+* Create POST method: Create Method --> POST --> Type: Lambda Function --> check the region is correct or not --> Lambda Function: "registration-form-function" --> Save
+* Enable CORS --> check-box the both "OPTIONS" & "post" --> Enable
+* Delpoy --> Deployment stage: new --> Stage name: prod --> Deploy
+* Invoke URL will be created save it and paste the URL in Script.js. Replace it in place of API_INVOKE_URL
+```bash
+// Set up request
+    xhr.open('POST', 'API_INVOKE_URL/register', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+```
+* 
