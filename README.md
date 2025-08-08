@@ -6,3 +6,12 @@ The project involves building a serverless web application that allows users to 
 This Project is a great way to learn about the basic of serverless architecture & how to build serveless application using AWS services.
 
 ---
+
+## ⚙️Service Used
+  * DynamoDB Table
+  * Create IAM Role for Lambda Function
+  * Set up an API gateway endpoint & enable CORS for cross domain request
+
+---
+
+## 📦 Setup Guide (Step-by-Step)
