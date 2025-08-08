@@ -50,4 +50,11 @@ This Project is a great way to learn about the basic of serverless architecture 
     xhr.open('POST', 'API_INVOKE_URL/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 ```
-* 
+
+# 🔹 Step 4: Test the Application
+
+* Open index.html --> Fill the form and submit it
+* If form will be submitted successfully go and check the DynamoDB table for entires.
+* If not check the log under lambda fuction in monitor and refresh the page.
+  
+
