@@ -23,4 +23,15 @@ This Project is a great way to learn about the basic of serverless architecture 
 
 * DynamoDB --> Create Table --> Table Name: registration-table --> Partition key: email --> Create.
 
-# 🔹 Step 2: 
+# 🔹 Step 2: Create IAM Role for Lambda Function
+
+* We need to create an IM role that will allow our function to access dynamodb table.
+* IAM - Role --> Name: RegistrationFormRole --> Permissions:1. CloudWatch Full Access 2. DynamoDB Full Access --> Create
+* We need to provide the dynamodb full access for the Lambda function to read write and do whatever it wants on the dynamodb table & Cloud watch full access because we need to look for the logs.
+
+# 🔹 Step 3: Create Lambda Function
+
+* We are going to create the Lambda function in this step, we will create a Lambda function that will handle form submissions and store the data in our dynamodb table we will use python as our Lambda functions programming language, since it is easy to use and support the AWS SDK for python.
+* Lambda --> Create Function --> Author from Scratch --> Function Name: registration-form-function --> Runtime: Python (Latest Version) --> Permission -- use an existing role-(RegistrationFormRole) --> Create Function
+
+# 🔹 Step 4: 
