@@ -56,5 +56,48 @@ This Project is a great way to learn about the basic of serverless architecture 
 * Open index.html --> Fill the form and submit it
 * If form will be submitted successfully go and check the DynamoDB table for entires.
 * If not check the log under lambda fuction in monitor and refresh the page.
-  
 
+---
+
+
+## ✅ EXTRA
+
+To share your Serverless Registration Form, you'll need to host the frontend somewhere publicly, then share the URL. Host it on Amazon S3 Static Website (Best for AWS Projects)
+
+# 🔹 Step-by-Step:
+* Go to S3 Console
+* Create or open a bucket (e.g., my-registration-form)
+* Enable static website hosting in the bucket Properties
+* Set the index document to index.html
+* Upload your frontend files (index.html, CSS, JS)
+* Make files public
+* Go to Permissions > Bucket Policy and add a policy like:
+```bash
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::my-registration-form/*"
+    }
+  ]
+}
+```
+
+# 🔹 Get the Public Link
+* Go to Properties > Static Website Hosting
+* Copy the Endpoint URL (e.g., http://my-registration-form.s3-website...)
+
+✅ Share this URL with your friend!
+
+---
+
+## 📬 Author
+
+**Soham Arekar**  
+📧 sohamarekar2002@gmail.com
+
+---
