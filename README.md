@@ -69,7 +69,7 @@ This Project is a great way to learn about the basic of serverless architecture 
 # 🔹 Step 2: Create IAM Role for Lambda Function
 
 * We need to create an IM role that will allow our function to access dynamodb table.
-* IAM - Role --> Name: RegistrationFormRole --> Permissions:1. CloudWatch Full Access 2. DynamoDB Full Access --> Create
+* IAM -> Role --> Select trusted entity as (AWS service) & Use case as (Lambda) --> Permissions: 1. CloudWatch Full Access 2. DynamoDB Full Access --> Name: RegistrationFormRole --> Create
 * We need to provide the dynamodb full access for the Lambda function to read write and do whatever it wants on the dynamodb table & Cloud watch full access because we need to look for the logs.
 
 # 🔹 Step 3: Create Lambda Function
@@ -78,12 +78,12 @@ This Project is a great way to learn about the basic of serverless architecture 
 * Lambda --> Create Function --> Author from Scratch --> Function Name: registration-form-function --> Runtime: Python (Latest Version) --> Permission -- use an existing role-(RegistrationFormRole) --> Create Function
 * Copy Lambda Function and paste it in code and Deploy it
 * Now going to DynamoDB table to create some dummy entries
-* DynamoDB --> Select for Table(registration-table) --> Create Items --> Add entires as email, name, phone, password --> Create Items
+* DynamoDB --> Select for Table(registration-table) --> Create Items --> Add entires as email - 1, name, phone, password --> Create Items
 
 # 🔹 Step 4: Create API Gateway and Enable CORS
 
 * Amazon API gateway --> REST API - Build --> Name: Registration-api --> Create API
-* Create Resource --> Resource name:Register and path "/"(by-default) --> Enable CORS --> Create Resource
+* Create Resource --> Resource name: Register and Resource path: "/"(by-default) --> Enable CORS --> Create Resource
 * Create POST method: Create Method --> POST --> Type: Lambda Function --> check the region is correct or not --> Lambda Function: "registration-form-function" --> Save
 * Enable CORS --> check-box the both "OPTIONS" & "post" --> Enable
 * Delpoy --> Deployment stage: new --> Stage name: prod --> Deploy
